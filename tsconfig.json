@@ -25,7 +25,8 @@
       "@/styles/*": ["src/styles/*"],
     },
     "types": [
-      "node"
+      "node",
+      "chrome"
     ]
   },
   "include": ["src"],
