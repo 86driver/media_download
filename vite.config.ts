@@ -13,6 +13,7 @@ const isDev = ENV_MODE === ENV.development;
 // https://vitejs.dev/config/
 export default defineConfig({
   root: isDev ? "" : "./src/entry/",
+  publicDir: path.resolve(__dirname, "./public"),
   plugins: [react()],
   server: {
     port: 3000, // 设置开发服务器的端口
@@ -24,7 +25,6 @@ export default defineConfig({
     emptyOutDir: true,
     rollupOptions: {
       input: {
-        background: path.resolve( __dirname, "./src/entry/background/index.html"),
         popup: path.resolve(__dirname, "./src/entry/popup/index.html"),
         options: path.resolve(__dirname, "./src/entry/options/index.html"),
       },
