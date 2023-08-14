@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import zipPack from "vite-plugin-zip-pack";
 import path from "path";
 
 const ENV_MODE = process.env.NODE_ENV;
@@ -7,14 +8,12 @@ enum ENV {
   development = "development",
   production = "production",
 }
-
 const isDev = ENV_MODE === ENV.development;
 
-// https://vitejs.dev/config/
 export default defineConfig({
   root: isDev ? "" : "./src/entry/",
   publicDir: path.resolve(__dirname, "./public"),
-  plugins: [react()],
+  plugins: [react(), zipPack()],
   server: {
     port: 3000, // 设置开发服务器的端口
   },
